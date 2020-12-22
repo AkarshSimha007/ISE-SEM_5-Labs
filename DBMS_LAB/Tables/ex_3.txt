@@ -1,0 +1,33 @@
+SQL> select * from boat;
+
+BID    BNAME		    COLOUR
+------ -------------------- ---------------
+02     pqr		    green
+01     abc		    Red
+03     lmn		    black
+04     xyz		    yellow
+05     def		    blue
+
+SQL> select * from sailor;
+
+SID    SNAME		    AGE RA
+------ -------------------- --- --
+10     Ram		    30	5
+20     Ravi		    25	4
+30     Mishra		    22	3
+40     Chandra		    24	2
+50     Shiva		    36	1
+60     Krishna		    40	6
+
+6 rows selected.
+
+SQL> select * from reserves;
+
+BID    SID    DAY
+------ ------ ----------
+01     20     Monday
+02     30     Tuesday
+03     50     Wednesday
+04     10     Thursday
+01     20     Friday
+

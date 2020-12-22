@@ -1,0 +1,27 @@
+SQL> select * from employee;
+
+SSN    NAME	      DEPTNO
+------ ---------- ----------
+01     abc		  60
+02     xyz		  70
+03     pqr		  80
+04     lmn		  90
+
+
+SQL> select * from assigned;
+
+USN    PROJECTNO
+------ ----------
+01     100
+01     200
+02     200
+03     200
+
+SQL> select * from project;
+
+PROJECTNO  PROJECTAREA
+---------- --------------------
+100	   database
+200	   network
+300	   android
+

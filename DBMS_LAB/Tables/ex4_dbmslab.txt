@@ -1,0 +1,103 @@
+create table Parts(
+pno varchar(3) primary key,
+pname varchar(10),
+colour varchar(10)); 
+
+
+create table warehouse(
+wno number(8) primary key,
+wname varchar(10),
+city varchar(10));
+
+
+create table shipment(
+pno varchar(3) references parts(pno) on delete cascade,
+wno number(8) references warehouse(wno) on delete cascade,
+quantity number(8),
+date_n Date,
+primary key(pno,wno));
+
+
+insert into SHIpment values('05',50,100,'31-DEC-2013');
+
+
+SQL> select * from parts;
+
+PNO PNAME      COLOUR
+--- ---------- ----------
+01  ABC        Red
+02  DEF        Blue
+03  LMN        Green
+04  PQR        Yellow
+05  XYZ        PINK
+
+SQL> select * from warehouse;
+
+       WNO WNAME      CITY
+---------- ---------- ----------
+	10 AAA	      KUMTA
+	20 BBB	      MUMBAI
+	30 CCC	      BANGALORE
+	40 DDD	      UDUPI
+	50 EEE	      KARWAR
+
+SQL> select * from shipment;
+
+PNO	   WNO	 QUANTITY DATE_N
+--- ---------- ---------- ---------
+01	    20	      300 28-FEB-13
+02	    30	      400 30-JAN-13
+03	    10	      500 31-JAN-13
+04	    40	      600 31-MAR-13
+05	    50	      100 31-DEC-13
+
+
+
+d.
+	1.
+	select wname,colour from parts,warehouse,shipment
+	where warehouse.wno=shipment.wno and shipment.pno=parts.pno and 	parts.colour='Red';
+
+	WNAME	   COLOUR
+	---------- ----------
+	BBB	   Red
+
+	2.	select pno as
+		from parts
+		where not exists(select *
+		from warehouse 
+		where not exists(select * from shipment
+		where shipment.pno=parts.pno and shipment.wno=warehouse.wno )
+		);
+		
+		PNO
+		---
+		03
+
+		
+		
+		
+		
+	3. select wname,quantity from warehouse join shipment
+		on warehouse.wno=shipment.wno;
+
+		WNAME	     QUANTITY
+		---------- ----------
+		BBB		  300
+		CCC		  400
+		AAA		  500
+		DDD		  600
+		EEE		  100
+
+	
+	4. select warehouse.wno,warehouse.wname,warehouse.city from warehouse
+            where warehouse.wno =(select wno from shipment where quantity=
+		(select max(quantity) from shipment));
+
+		       	WNO WNAME      CITY
+			---------- ---------- ----------
+			40 DDD	      UDUPI
+
+
+
+

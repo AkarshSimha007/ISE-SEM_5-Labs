@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback</title>
+</head>
+<body>
+    <h1>Enter your Feedback</h1>
+    <form action="thanks.html" target="_blank">
+        <br>NAME<br>
+        <input type="text" id="User_name" name="User name" required>
+        <br>
+        <br>Address<br>
+        <select>
+            <option value="RT" selected>RT Nagar</option>
+            <option value="Mathi">Mathikere</option>
+            <option value="Heb">Hebbal</option>
+        </select>
+        <br><br>
+
+        Gender<br>
+        <input type="Radio" name="Gender" value="Male">MALE
+        <input type="Radio" name="Gender" value="Female">FEMALE
+        <input type="Radio" name="Gender" value="others">NON-Binary
+        <br><br>
+
+        <h3>Why do you purchase at our store?</h3>
+        <input type="checkbox" name="choice" value="price">Reasonable pricing
+        <input type="checkbox" name="choice" value="quality">Good quality
+        <input type="checkbox" name="choice" value="service">Good Service
+        <br>
+        <input type="checkbox" name="choice" value="Delivery" checked>Home Delivery
+        <br><br>
+        
+        Any other feedback<br>
+        <textarea rows="10" cols="150" value="other_feedback">Your service is good</textarea>     
+        <br>
+        
+        <input type="submit" name="submit form" id="submit">
+        <input type="reset" value="Reset Form" id="reset">
+    </form>
+</body>
+</html>
