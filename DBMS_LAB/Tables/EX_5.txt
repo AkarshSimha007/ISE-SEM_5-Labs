@@ -1,0 +1,85 @@
+create table book(
+isbn number primary key,
+title varchar(20),
+author varchar(20),
+publisher varchar(20));
+
+
+create table student(
+usn varchar(20) primary key,
+name varchar(20),
+sem number(3),
+deptno number(3));
+
+create table borrow(
+isbn number references book(isbn) on delete cascade,
+usn varchar(20) references student(usn) on delete cascade,
+bdate date,
+primary key(isbn,usn));
+
+SQL> select * from book;
+
+      ISBN TITLE		AUTHOR		     PUBLISHER
+---------- -------------------- -------------------- --------------------
+	 1 T1			A1		     P1
+	 2 T2			A2		     P2
+	 3 T3			A3		     P3
+	 4 T4			A4		     P4
+	 5 T5			A5		     P5
+
+SQL> select * from student;
+
+USN		     NAME			 SEM	 DEPTNO
+-------------------- -------------------- ---------- ----------
+111		     aaa			   5	      1
+222		     bbb			   4	      2
+333		     ccc			   5	      1
+444		     ddd			   3	      1
+555		     eee			   4	      2
+
+SQL> select * from borrow;
+
+      ISBN USN			BDATE
+---------- -------------------- ---------
+	 1 222			29-NOV-20
+	 2 333			02-DEC-20
+	 3 111			08-DEC-20
+	 5 444			11-DEC-20
+	 3 555			18-DEC-20
+
+5.
+	d.
+	 1.Obtain student details who have borrowed the book with isbn=3
+	   SQL> select student.usn,name,sem,deptno
+  		2  from student,borrow
+  		3  where student.usn=borrow.usn
+  		4  and borrow.isbn=3;
+
+		USN		     NAME			 SEM	 DEPTNO
+		-------------------- -------------------- ---------- ----------
+		111		     aaa			   5	      1
+		555		     eee			   4	      2
+		
+	2.Obtain details of students who have borrowed book with title T1
+		SQL> select student.usn,name,sem,deptno
+  		     2  from book,student,borrow
+  		     3  where book.isbn=borrow.isbn
+  		     4  and borrow.usn=student.usn
+ 		     5  and book.title='T1';
+
+		USN		     NAME			 SEM	 DEPTNO
+		-------------------- -------------------- ---------- ----------
+		222		     bbb			   4	      2
+	
+	3.Number of books borrowed by each student
+		select count(isbn) as no_of_books,usn from borrow
+  		  group by usn;
+
+		NO_OF_BOOKS USN
+		----------- --------------------
+			  1 333
+			  2 222
+	 		  2 444
+	  		  1 111
+	  		  1 555
+
