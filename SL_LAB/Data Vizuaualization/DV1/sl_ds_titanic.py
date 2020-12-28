@@ -35,7 +35,7 @@ ax.set(title='Passenger status(S/D) against Passenger Class',xlabel='Passenger L
 plt.show()
 
 print("Viz.2: Survival Rate Based on Gender")
-print(pd.crosstab(titanic_df['Sex'],titanic_df.Survived))
+print(pd.crosstab(titanic_df["Sex"],titanic_df.Survived))
 ax = sns.countplot(x = 'Sex', hue = 'Survived', palette = 'Set2', data = titanic_df)
 ax.set(title = 'Total Survivors According to Sex', xlabel = 'Sex', ylabel='Total')
 plt.show()
