@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+</head>
+<body>
+    <h1>Simple Calculator</h1>
+    <form>
+        <br>
+    Operand 1<br>
+    <input type="number" id="op1">
+    <br>
+    Operand 2<br>
+    <input type="number" id="op2">
+    <br>
+    <br>
+    <input type="radio" id="sum" value="sum" onclick="result()" name="calc">Add<br>
+    <input type="radio" id="dif" value="difference" onclick="result()" name="calc">Subtract<br> 
+    <input type="radio" id="mul" value="Multiply" onClick="result()" name="calc">Multiply<br>
+    <input type="radio" id="div" value="Divide" onclick="result()" name="calc">Divide<br>
+    <br>
+    <br>
+    </form>
+    <p id="res"></p>
+    <script>
+       function result(){
+           x=document.getElementById("op1").value;
+           y=document.getElementById("op2").value;
+
+           if(x==""||y==""){
+               alert("Empty Fields");
+           }
+           else {
+           if(document.getElementById("sum").checked){
+               a=parseInt(x);
+               b=parseInt(y);
+               document.getElementById("res").innerHTML=a+b;
+           }
+           else if(document.getElementById("dif").checked){
+               document.getElementById("res").innerHTML=x-y;
+           }
+           else if(document.getElementById("mul").checked)
+	{
+	document.getElementById("res").innerHTML=(x*y)
+	}
+           else if(document.getElementById("div").checked){
+               if(y==0){
+                   document.getElementById('res').innerHTML="Divide by zero ERROR!";
+               }
+               else{
+                   document.getElementById("res").innerHTML=x/y;
+               }
+           }
+        }
+       }
+    </script>
+    
+    
+    
+    
+    
+
+    
+    
+    
+</body>
+</html>

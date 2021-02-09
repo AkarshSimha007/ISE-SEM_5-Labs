@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery</title>
+
+<script>
+    
+    function bill(){
+        var ca=document.getElementById("caq").value;
+        var co=document.getElementById("coq").value;
+
+        var cakeSelected=document.getElementById("cake").checked;
+        var cookieSelected=document.getElementById("cookie").checked;
+
+
+        if(cakeSelected && Math.sign(ca)==1){
+            alert("Bill for cakes is "+ca*100);
+        }
+        else if(cookieSelected && Math.sign(co)==1){
+            alert("Bill for cookies is "+co*50);
+        }
+        else if(!ca&&!co){
+            alert("Select an item");
+        }
+        else{
+            alert("Invalid Quantity!")
+        }
+    }
+</script>
+</head>
+
+<body>
+    <form>
+        <input type="radio" id="cake" name="item">
+        <img src="cake.jpg" width="120px" height="130px"><br>
+        <br>
+        <h3>Cost=Rs.100</h3>
+        Enter Quantity
+        <input type="number" id="caq">
+    
+        <br><br><br>
+    
+        <input type="radio" id="cookie" name="item">
+        <img src="cookies.jpg" width="150px" height="100px">
+        <h3>Cost=Rs.50</h3>
+        Enter Quantity
+        <input type="number" id="coq"><br>
+        <br>
+        <input type="submit" onclick="bill()">
+    </form>
+   
+</body>
+</html>

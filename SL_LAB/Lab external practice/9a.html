@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function lenstr(){
+            var s=document.getElementById("t").value;
+            m=0;
+            x=""
+            p=s.split(" ");
+            for(i=0;i<p.length;i++){
+                if(p[i].length>m){
+                    m=p[i].length;
+                    x=p[i];
+                }
+            }
+            document.getElementById("list").innerHTML=p;
+            document.getElementById("lword").innerHTML=x;
+            document.getElementById("l").innerHTML=m;        
+        }
+    </script>
+</head>
+<body>
+    <textarea id="t" rows="30" cols="100" name="txt"></textarea><br>
+    <br><input type="button" id="btn" value="Length of longest string" onclick="lenstr()">
+    <p id="lword"></p>
+    <p id="l"></p>
+    <p id="list"></p>
+</body>
+</html>

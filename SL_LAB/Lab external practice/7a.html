@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function checkDivisibility(){
+            var number=document.getElementById("num").value;
+            if(isNaN(number)||number.length<1){
+                alert("Enter number only!");
+            }
+            else{
+
+            
+            if(number%7==0 || number%3==0){
+                document.getElementById("result").innerHTML="True";
+                
+            }
+            else{
+                document.getElementById("result").innerHTML="False"
+            }
+        }
+        }
+    </script>
+</head>
+<body>
+    <H1>Check the divisibility of a number</H1>
+    <br>
+    Enter a number
+    <input type="text" id="num" name="num">
+    <br>
+    <br>
+    <input type="submit" id="res" value="Check Result" onclick="checkDivisibility()">
+
+   
+    <p id="result"></p>
+</body>
+</html>

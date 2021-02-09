@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currency conversion</title>
+    
+</head>
+<body>
+    
+        Enter currency value<br>
+        <br>
+        <input type="number" id="cur"><br>
+        <br>Select conversion type<br>
+        <br>
+        <input type="radio" name="conversion" id="USDR" value="USD to Rupee" onclick="usdr()">USD to Rupee<br>
+        <input type="radio" name="conversion" id="RUSD" value="Rupee to USD" onclick="rusd()">Rupee to USD<br>
+        <input type="radio" name="conversion" id="ER" value="Euro to Rupee" onclick="er()">Euro to Rupee<br>
+        <input type="radio" name="conversion" id="RE" value="Rupee to Euro" onclick="re()">Rupee to Euro<br>
+    
+    <p id="res"></p>
+    <script>
+        
+
+        function usdr(){
+            var a=document.getElementById("cur").value;
+            var x=parseFloat(a);
+            document.getElementById("res").innerHTML=x*73.5;
+        }
+
+        function rusd(){
+            var a=document.getElementById("cur").value;
+            var x=parseFloat(a);
+            document.getElementById("res").innerHTML=x/73.5;
+        }
+
+        function er(){
+            var a=document.getElementById("cur").value;
+            var x=parseFloat(a);
+            document.getElementById("res").innerHTML=x*89.5;
+        }
+
+        function re(){
+            var a=document.getElementById("cur").value;
+            var x=parseFloat(a);
+            document.getElementById("res").innerHTML=x/89.5;
+        }
+    </script>
+    
+</body>
+</html>

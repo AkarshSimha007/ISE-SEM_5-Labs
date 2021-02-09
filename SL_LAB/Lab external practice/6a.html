@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function display(){
+            document.getElementById("r").innerHTML="Results are";
+            var a=document.getElementById("name").value;
+            document.getElementById("r1").innerHTML="Customer name is "+a;
+
+            if(document.getElementById("gender").checked){
+                var b=document.getElementById("gender").value;
+                document.getElementById("r2").innerHTML="The gender is "+b;
+            }
+
+            var c=document.getElementById("other input").value;
+            document.getElementById("r3").innerHTML=c;
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Enter your feedback</h1>
+    
+        Name<br>
+        <input type="text" id=name><br>
+        <br>Gender<br>
+        <input type="radio" id=gender value="male" name="gender">Male
+        <input type="radio" id=gender value="female" name="gender">Female
+        <input type="radio" id=gender value="others" name="gender">Others
+        
+        <br><br>Any other feedback<br>
+        <textarea id="other input" rows=20 cols=100></textarea>
+    
+        <br>
+        <input type="submit" id="submit" value="Submit Feedback" onclick="display()">
+        
+        <h3 id="r"></h3>
+        <p id="r1"></p>
+        <p id="r2"></p>
+        <p id="r3"></p>
+</body>
+</html>
