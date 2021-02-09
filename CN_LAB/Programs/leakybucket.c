@@ -24,8 +24,8 @@ int main()
      printf("\n Second \t Recieved \t Sent \t Dropped \t Remaining\n");
      for(i=0;count||nsec>i;i++){
          printf("%d",i+1);
-         printf("\t%d\t",inp[i]);
-         printf("\t%d\t",MIN((inp[i]+count),orate));
+         printf("\t%d",inp[i]);
+         printf("\t%d",MIN((inp[i]+count),orate));
          
          if((x=inp[i]+count-orate)>0){
              if(x>bSize){
@@ -44,7 +44,5 @@ int main()
          printf("\t%d\t%d\n",drop,count);
          
      }
-     
-    /* code */
     return 0;
 }

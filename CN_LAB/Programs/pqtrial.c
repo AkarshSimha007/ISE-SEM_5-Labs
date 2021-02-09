@@ -1,21 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define MAX 10
-int pq[MAX], rear, front;
+
+#define max 10
+int pq[max], front, rear;
 
 void create()
 {
     front = -1;
     rear = -1;
+    return;
 }
 
-void insert_pq(int data)
+void insert(int data)
 {
-    if (rear == MAX - 1)
+    if (rear == max - 1)
     {
-        printf("Queue is Full\n");
+        printf("\nQueue is Empty\n");
+        return;
     }
-    else if (front == -1 && rear == -1)
+    else if (front == rear == -1)
     {
         front++;
         rear++;
@@ -34,7 +37,7 @@ void check(int data)
     int i, j;
     for (i = 0; i <= rear; i++)
     {
-        if (data >= pq[i])
+        if (pq[i]<=data)
         {
             for (j = rear + 1; j > i; j--)
             {
@@ -47,12 +50,12 @@ void check(int data)
     pq[i] = data;
 }
 
-void delpq(int data)
+void deletepq(int data)
 {
     int i;
     if (front == rear == -1)
     {
-        printf("Queue is Empty\n");
+        printf("\nQueue is Empty");
         return;
     }
     for (i = 0; i <= rear; i++)
@@ -72,22 +75,15 @@ void delpq(int data)
             return;
         }
     }
-    printf("\n %d not found in the Queue", data);
+    printf("\n%d not found in Queue");
 }
 
-void displaypq()
-{
-    if (front == rear == -1)
-    {
-        printf("Queue is Empty\n");
+void display(){
+    if(front==rear==-1){
+        printf("\nQueue is Empty");
     }
-    else
-    {
-        for (; front <= rear; front++)
-        {
-            printf("%d\t", pq[front]);
-        }
-        front = 0;
+    for(front=0;front<=rear;front++){
+        printf("%d\t",pq[front]);
     }
 }
 
@@ -106,16 +102,16 @@ void main()
         case 1:
             printf("\nEnter Element to be inserted:");
             scanf("%d", &data);
-            insert_pq(data);
+            insert(data);
             break;
         case 2:
             printf("\nEnter Element to be Removed:");
             scanf("%d", &data);
-            delpq(data);
+            deletepq(data);
             break;
         case 3:
             printf("\nElements of the Queue are:");
-            displaypq();
+            display();
             break;
         case 4:
             exit(0);

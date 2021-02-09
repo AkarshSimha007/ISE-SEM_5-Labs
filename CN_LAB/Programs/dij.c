@@ -3,8 +3,10 @@
 void dij(int n,int v,int cost[10][10],int dist[])
 {
  int i,u,count,w,flag[10],min;
+
  for(i=1;i<=n;i++)
   flag[i]=0,dist[i]=cost[v][i];
+ 
  count=2;
  while(count<=n)
  {
@@ -26,6 +28,7 @@ void main()
 
  printf("\n Enter the number of nodes:");
  scanf("%d",&n);
+ 
  printf("\n Enter the cost matrix:\n");
  for(i=1;i<=n;i++)
   for(j=1;j<=n;j++)
@@ -34,9 +37,12 @@ void main()
    if(cost[i][j]==0)
     cost[i][j]=infinity;
   }
+
  printf("\n Enter the source node:");
  scanf("%d",&v);
+
  dij(n,v,cost,dist);
+ 
  printf("\n Shortest path:\n");
  for(i=1;i<=n;i++)
   if(i!=v)
