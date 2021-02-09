@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            text-align: center;
+            width: 100%;
+        }
+
+        td{
+            font-size: xx-large;
+        }
+
+        th{
+            font-size: x-large;
+            color:darkgrey;
+            background-color:greenyellow
+        }
+
+        th:hover{
+            color: green;
+        }
+
+    </style>
+    <script src="cars.js"></script>
+</head>
+<body>
+    <h3 style="text-align: center">Hover a Tesla Type</h3>
+    <table>
+        <tr id="menu"></tr>
+    </table>
+
+    <table id='data' class='table' hidden>
+        <tr><td>Name</td><td id="name"></td></tr>
+        <tr><td>Look</td><td id='pic'></td></tr>
+        <tr><td>Price</td><td id="cost"></td></tr>
+        <tr><td>Year</td><td id='year'></td></tr>
+    </table>
+</body>
+</html>
